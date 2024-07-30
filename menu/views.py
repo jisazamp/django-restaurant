@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse 
+from django.shortcuts import HttpResponse, render
 
 
 # Create your views here.
@@ -11,4 +11,4 @@ def menu(request):
 
 
 def locations(request):
-    return HttpResponse("Locations")
+    return render(request, "locations.html")

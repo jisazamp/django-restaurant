@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="map" style="height: 600px; width: 600px; margin-top: 16px;">
+</div>
+
+<script>
+    const map = L.map('map').setView([6.230833, -75.590553], 14);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const locations = [
+        [6.239025511805884, -75.59646292698682, "Los Almendros"],
+        [6.220679184398404, -75.57560709492118, "Otra"],
+        [6.202419251461912, -75.56479242870586, "Otra pues"]
+    ]
+
+    locations.forEach(location => {
+        L.marker([location[0], location[1]]).addTo(map).bindPopup(location[2]);
+    });
+</script>
+{% endblock %}
